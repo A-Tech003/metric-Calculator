@@ -1,16 +1,20 @@
 // MetricCalculator.tsx
 import React, { useState } from 'react';
 
+export interface MetricsResponse {
+    key: string,
+    value: string,
+}
 interface MetricCalculatorProps {
     metricName: string;
     labelName1: string;
     labelName2: string;
     labelName3: string;
     labelName4: string;
-
+    onSubmit: (value: string) => void;
 }
 
-const MetricCalculator: React.FC<MetricCalculatorProps> = ({ metricName, labelName1, labelName2, labelName3, labelName4 }) => {
+const MetricCalculator: React.FC<MetricCalculatorProps> = ({ metricName, labelName1, labelName2, labelName3, labelName4, onSubmit }) => {
     const [input1, setInput1] = useState<number | string>('');
     const [input2, setInput2] = useState<number | string>('');
     const [input3, setInput3] = useState<number | string>('');
@@ -28,7 +32,8 @@ const MetricCalculator: React.FC<MetricCalculatorProps> = ({ metricName, labelNa
         setInput3(event.target.value);
     };
 
-    const handleCalculate = () => {
+    const handleCalculate = (e: any) => {
+        e.preventDefault()
         const num1 = parseFloat(input1 as string);
         const num2 = parseFloat(input2 as string);
         const num3 = parseFloat(input3 as string);
@@ -36,8 +41,12 @@ const MetricCalculator: React.FC<MetricCalculatorProps> = ({ metricName, labelNa
         if (!isNaN(num1) && !isNaN(num2) && !isNaN(num3) && num3 !== 0) {
             const calculatedResult = num1 / (num2 + num3 - num1);
             setResult(calculatedResult);
+            onSubmit(calculatedResult.toString())
+            setInput1('')
+            setInput2('')
+            setInput3('')
         } else {
-            setResult('Invalid input. Please enter valid numbers.');
+            // setResult('Invalid input. Please enter valid numbers.');
         }
     };
 
@@ -51,6 +60,7 @@ const MetricCalculator: React.FC<MetricCalculatorProps> = ({ metricName, labelNa
                             <input
                                 type="text"
                                 value={input1}
+                                required
                                 onChange={handleInput1Change}
                                 style={{ padding: '5px', marginLeft: '5px' }}
                             />
@@ -60,6 +70,7 @@ const MetricCalculator: React.FC<MetricCalculatorProps> = ({ metricName, labelNa
                             <input
                                 type="text"
                                 value={input2}
+                                required
                                 onChange={handleInput2Change}
                                 style={{ padding: '5px', marginLeft: '5px' }}
                             />
@@ -69,6 +80,7 @@ const MetricCalculator: React.FC<MetricCalculatorProps> = ({ metricName, labelNa
                             <input
                                 type="text"
                                 value={input3}
+                                required
                                 onChange={handleInput3Change}
                                 style={{ padding: '5px', marginLeft: '5px' }}
                             />

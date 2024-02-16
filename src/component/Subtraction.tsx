@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 
+export interface MetricsResponse {
+    key: string,
+    value: string,
+}
 interface MetricCalculatorProps {
     metricName: string;
     labelName1: string;
     labelName2: string;
     labelName3: string;
+    onSubmit: (value: string) => void;
 }
 
-const MetricCalculator: React.FC<MetricCalculatorProps> = ({ metricName, labelName1, labelName2, labelName3 }) => {
+const MetricCalculator: React.FC<MetricCalculatorProps> = ({ metricName, labelName1, labelName2, labelName3, onSubmit }) => {
     const [input1, setInput1] = useState<number | string>('');
     const [input2, setInput2] = useState<number | string>('');
     const [result, setResult] = useState<number | string>('');
@@ -27,6 +32,9 @@ const MetricCalculator: React.FC<MetricCalculatorProps> = ({ metricName, labelNa
         if (!isNaN(num1) && !isNaN(num2) && num2 !== 0) {
             const calculatedResult = num1 - num2;
             setResult(calculatedResult);
+            onSubmit(calculatedResult.toString())
+            setInput1('')
+            setInput2('')
         } else {
             setResult('Invalid input. Please enter valid numbers.');
         }
@@ -35,13 +43,14 @@ const MetricCalculator: React.FC<MetricCalculatorProps> = ({ metricName, labelNa
     return (
         <div style={{borderBottom: '2px solid grey', marginBottom: '20px'}}>
             <div className={`metric-${metricName}`} style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '20px' }}>
+                <form style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '20px' }}>
                     <div style={{ display: 'flex', marginBottom: '20px' }}>
                         <div style={{ marginRight: '10px' }}>
                             <label>{labelName1}</label>
                             <input
                                 type="text"
                                 value={input1}
+                                required
                                 onChange={handleInput1Change}
                                 style={{ padding: '5px', marginLeft: '5px' }}
                             />
@@ -51,6 +60,7 @@ const MetricCalculator: React.FC<MetricCalculatorProps> = ({ metricName, labelNa
                             <input
                                 type="text"
                                 value={input2}
+                                required
                                 onChange={handleInput2Change}
                                 style={{ padding: '5px', marginLeft: '5px' }}
                             />
@@ -66,7 +76,7 @@ const MetricCalculator: React.FC<MetricCalculatorProps> = ({ metricName, labelNa
                         <label style={{ fontSize: '30px', fontWeight: 'bold' }}>{labelName3}</label>
                         <div style={{ fontSize: '30px' }}>{result}</div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     );
