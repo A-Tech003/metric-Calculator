@@ -67,13 +67,16 @@ const ChoiceNavigationMetrics = () => {
       <table style={{ width: '100%', marginTop: '20px', borderCollapse: 'collapse' }}>
         <thead>
           <tr style={{ backgroundColor: '#4CAF50', color: 'white' }}>
-            <th style={{ padding: '10px', border: '1px solid #ddd' }}>ASSP</th>
-            <th style={{ padding: '10px', border: '1px solid #ddd' }}>PFP</th>
-            <th style={{ padding: '10px', border: '1px solid #ddd' }}>UV</th>
+            <th style={{ padding: '10px', border: '1px solid #ddd' }}>Ca</th>
+            <th style={{ padding: '10px', border: '1px solid #ddd' }}>RTR</th>
+            <th style={{ padding: '10px', border: '1px solid #ddd' }}>CR</th>
             <th style={{ padding: '10px', border: '1px solid #ddd' }}>RR</th>
-            <th style={{ padding: '10px', border: '1px solid #ddd' }}>CAR</th>
-            <th style={{ padding: '10px', border: '1px solid #ddd' }}>MU</th>
-            <th style={{ padding: '10px', border: '1px solid #ddd' }}>MCM</th>
+            <th style={{ padding: '10px', border: '1px solid #ddd' }}>COR</th>
+            <th style={{ padding: '10px', border: '1px solid #ddd' }}>SOCR</th>
+            <th style={{ padding: '10px', border: '1px solid #ddd' }}>SOCRAP</th>
+            <th style={{ padding: '10px', border: '1px solid #ddd' }}>COCR</th>
+            <th style={{ padding: '10px', border: '1px solid #ddd' }}>COCRAP</th>
+            <th style={{ padding: '10px', border: '1px solid #ddd' }}>CSR</th>
           </tr>
         </thead>
         <tbody>
