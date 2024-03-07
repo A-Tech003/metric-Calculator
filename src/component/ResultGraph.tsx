@@ -42,7 +42,7 @@ const ResultGraph: React.FC<ResultGraphProps> = ({ data, headings }) => {
           scales: {
             y: {
               beginAtZero: true,
-              max: 100,
+              max: 500,
             },
           },
         },

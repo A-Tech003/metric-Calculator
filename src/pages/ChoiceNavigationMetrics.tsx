@@ -68,6 +68,7 @@ const ChoiceNavigationMetrics = () => {
       <table style={{ width: '100%', marginTop: '20px', borderCollapse: 'collapse' }}>
         <thead>
           <tr style={{ backgroundColor: '#4CAF50', color: 'white' }}>
+            <th style={{ padding: '10px', border: '1px solid #ddd' }}>S/N</th>
             <th style={{ padding: '10px', border: '1px solid #ddd' }}>Ca</th>
             <th style={{ padding: '10px', border: '1px solid #ddd' }}>RTR</th>
             <th style={{ padding: '10px', border: '1px solid #ddd' }}>CR</th>
@@ -83,8 +84,11 @@ const ChoiceNavigationMetrics = () => {
         <tbody>
           {totalMetrics.map((record, index) => (
             <tr key={index}>
+              <td style={{ padding: '10px', border: '1px solid #ddd' }}>{index + 1}</td>
               {record.map((col, i) => (
-                <td key={i} style={{ padding: '10px', border: '1px solid #ddd' }}>{col}</td>
+                <td key={i} style={{ padding: '10px', border: '1px solid #ddd' }}>
+                  {col}
+                </td>
               ))}
             </tr>
           ))}

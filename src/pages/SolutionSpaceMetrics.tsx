@@ -50,6 +50,7 @@ const SolutionSpaceMetrics = () => {
       <table style={{ width: '100%', marginTop: '20px', borderCollapse: 'collapse' }}>
         <thead>
           <tr style={{ backgroundColor: '#4CAF50', color: 'white' }}>
+            <th style={{ padding: '10px', border: '1px solid #ddd' }}>S/N</th>
             <th style={{ padding: '10px', border: '1px solid #ddd' }}>ASSP</th>
             <th style={{ padding: '10px', border: '1px solid #ddd' }}>PFP</th>
             <th style={{ padding: '10px', border: '1px solid #ddd' }}>UV</th>
@@ -62,8 +63,11 @@ const SolutionSpaceMetrics = () => {
         <tbody>
           {totalMetrics.map((record, index) => (
             <tr key={index}>
+              <td style={{ padding: '10px', border: '1px solid #ddd' }}>{index + 1}</td>
               {record.map((col, i) => (
-                <td key={i} style={{ padding: '10px', border: '1px solid #ddd' }}>{col}</td>
+                <td key={i} style={{ padding: '10px', border: '1px solid #ddd' }}>
+                  {col}
+                </td>
               ))}
             </tr>
           ))}
