@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import NavBar from '../component/NavBar'
 import MetricCalculator, { MetricsResponse } from '../component/DivisionMetrics'
 import MetricCalculator2 from '../component/DivisionMetrics2'
+import ResultGraph from '../component/ResultGraph';  // Import the new ResultGraph component
 
 interface TotalMetricsProps {
   key: String,
@@ -89,6 +90,10 @@ const ChoiceNavigationMetrics = () => {
           ))}
         </tbody>
       </table>
+
+
+      {/* Display the graph */}
+      <ResultGraph data={totalMetrics} headings={['Ca', 'RTR', 'CR', 'RR', 'COR', 'SOCR', 'SOCRAP', 'COCR', 'COCRAP', 'CSR']} />
     </>
   )
 }
