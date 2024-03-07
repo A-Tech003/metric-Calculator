@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import NavBar from '../component/NavBar'
 import MetricCalculator from '../component/DivisionMetrics'
-// import MetricCalculator2 from '../component/DivisionMetrics2'
 import Subtraction from '../component/Subtraction'
+import ResultGraph from '../component/ResultGraph'; 
 
 const SolutionSpaceMetrics = () => {
   const [totalMetrics, setTotalMetrics] = useState<string[][]>([])
@@ -69,6 +69,8 @@ const SolutionSpaceMetrics = () => {
           ))}
         </tbody>
       </table>
+       {/* Display the graph */}
+       <ResultGraph data={totalMetrics} headings={['ASSP', 'PFP', 'UV', 'RR', 'CAR', 'MU', 'MCM']} />
     </div>
   )
 }
