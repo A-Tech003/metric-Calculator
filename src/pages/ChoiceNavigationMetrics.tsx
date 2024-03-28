@@ -65,7 +65,7 @@ const ChoiceNavigationMetrics = () => {
         <MetricCalculator metricName="10" labelName1="No Of Sold Configuration: " labelName2="No Of Started Configuration: " labelName3="CSR= " onSubmit={(value) => setMetrics10(value)} />
       </div>
       <button style={{ marginTop: '20px', padding: '10px', fontSize: '16px', backgroundColor: '#4CAF50', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }} onClick={handleTotalMetrics}>Add To Table</button>
-      <table style={{ width: '100%', marginTop: '20px', borderCollapse: 'collapse' }}>
+      <table style={{ width: '50%', marginTop: '20px', borderCollapse: 'collapse' }}>
         <thead>
           <tr style={{ backgroundColor: '#4CAF50', color: 'white' }}>
             <th style={{ padding: '10px', border: '1px solid #ddd' }}>S/N</th>
