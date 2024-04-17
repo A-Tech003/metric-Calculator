@@ -141,32 +141,62 @@ const SolutionSpaceMetrics = () => {
           </tr>
         </thead>
         {(showTable)?<tbody>
-          {totalMetrics.map((record, i) => (
+          {totalMetrics.map((record, i) => {
+
+                let col1 = (+allCol1[i] - Math.min(Number(...allCol1))) / (Math.max(Number(...allCol1)) - Math.min(Number(...allCol1)))
+                if (Number.isNaN(col1) || col1 == Infinity) {
+                   col1 = 0
+                }
+                let col2 = (+allCol2[i] - Math.min(Number(...allCol2))) / (Math.max(Number(...allCol2)) - Math.min(Number(...allCol2)))
+                if (Number.isNaN(col2) || col2 == Infinity) {
+                  col2 = 0
+                }
+                let col3 = (+allCol3[i] - Math.min(Number(...allCol3))) / (Math.max(Number(...allCol3)) - Math.min(Number(...allCol3)))
+                if (Number.isNaN(col3) || col3 == Infinity) {
+                  col3 = 0
+                }
+                let col4 = (+allCol4[i] - Math.min(Number(...allCol4))) / (Math.max(Number(...allCol4)) - Math.min(Number(...allCol4)))
+                if (Number.isNaN(col4) || col4 == Infinity) {
+                  col4 = 0
+                }
+                let col5 = (+allCol5[i] - Math.min(Number(...allCol5))) / (Math.max(Number(...allCol5)) - Math.min(Number(...allCol5)))
+                if (Number.isNaN(col5) || col5 == Infinity) {
+                  col5 = 0
+                }
+                let col6 = (+allCol6[i] - Math.min(Number(...allCol6))) / (Math.max(Number(...allCol6)) - Math.min(Number(...allCol6)))
+                if (Number.isNaN(col6) || col6 == Infinity) {
+                  col6 = 0
+                }
+                let col7 = (+allCol7[i] - Math.min(Number(...allCol7))) / (Math.max(Number(...allCol7)) - Math.min(Number(...allCol7)))
+                if (Number.isNaN(col7) || col7 == Infinity) {
+                  col7 = 0
+                }
+            return (
             <tr key={i}>
               <td style={{ padding: '10px', border: '1px solid #ddd' }}>{i + 1}</td>
               <td key={i} style={{ padding: '10px', border: '1px solid #ddd' }}>
-                  {(+allCol1[i] - Math.min(Number(...allCol1))) / (Math.max(Number(...allCol1)) - Math.min(Number(...allCol1)))}
+                  {col1}
               </td>
               <td key={i} style={{ padding: '10px', border: '1px solid #ddd' }}>
-                  {(+allCol2[i] - Math.min(Number(...allCol2))) / (Math.max(Number(...allCol2)) - Math.min(Number(...allCol2)))}
+                  {col2}
               </td>
               <td key={i} style={{ padding: '10px', border: '1px solid #ddd' }}>
-                  {(+allCol3[i] - Math.min(Number(...allCol3))) / (Math.max(Number(...allCol3)) - Math.min(Number(...allCol3)))}
+                  {col3}
               </td>
               <td key={i} style={{ padding: '10px', border: '1px solid #ddd' }}>
-                  {(+allCol4[i] - Math.min(Number(...allCol4))) / (Math.max(Number(...allCol4)) - Math.min(Number(...allCol4)))}
+                  {col4}
               </td>
               <td key={i} style={{ padding: '10px', border: '1px solid #ddd' }}>
-                  {(+allCol5[i] - Math.min(Number(...allCol5))) / (Math.max(Number(...allCol5)) - Math.min(Number(...allCol5)))}
+                  {col5}
               </td>
               <td key={i} style={{ padding: '10px', border: '1px solid #ddd' }}>
-                  {(+allCol6[i] - Math.min(Number(...allCol6))) / (Math.max(Number(...allCol6)) - Math.min(Number(...allCol6)))}
+                  {col6}
               </td>
               <td key={i} style={{ padding: '10px', border: '1px solid #ddd' }}>
-                  {(+allCol7[i] - Math.min(Number(...allCol7))) / (Math.max(Number(...allCol7)) - Math.min(Number(...allCol7)))}
+                  {col7}
               </td>
             </tr>
-          ))}
+          )})}
           <tr>
               <td style={{ padding: '10px', border: '1px solid #ddd' }}>mean</td>
               <td style={{ padding: '10px', border: '1px solid #ddd' }}>
